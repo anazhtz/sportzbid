@@ -61,7 +61,9 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                   hintText: 'Password',
                   obscureText: _obscurePassword,
                   prefixIcon: Icons.lock,
-                  suffixIcon: _obscurePassword ? Icons.visibility_off : Icons.visibility,
+                  suffixIcon: _obscurePassword
+                      ? Icons.visibility_off
+                      : Icons.visibility,
                   onSuffixIconPressed: () {
                     setState(() {
                       _obscurePassword = !_obscurePassword;
@@ -73,7 +75,9 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                   hintText: 'Confirm Password',
                   obscureText: _obscureConfirmPassword,
                   prefixIcon: Icons.lock,
-                  suffixIcon: _obscureConfirmPassword ? Icons.visibility_off : Icons.visibility,
+                  suffixIcon: _obscureConfirmPassword
+                      ? Icons.visibility_off
+                      : Icons.visibility,
                   onSuffixIconPressed: () {
                     setState(() {
                       _obscureConfirmPassword = !_obscureConfirmPassword;
@@ -104,7 +108,8 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                         ),
                         recognizer: TapGestureRecognizer()
                           ..onTap = () {
-                           
+                            Navigator.pop(
+                                context); // Navigate back to the LoginPage
                           },
                       ),
                     ],

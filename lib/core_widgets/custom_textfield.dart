@@ -9,7 +9,7 @@ class CustomTextField extends StatefulWidget {
   final IconData? prefixIcon;
   final IconData? suffixIcon;
   final void Function()? onSuffixIconPressed;
-  final TextInputType keyboardType; // Added keyboardType property
+  final TextInputType keyboardType;
 
   const CustomTextField({
     super.key,
@@ -18,7 +18,7 @@ class CustomTextField extends StatefulWidget {
     this.prefixIcon,
     this.suffixIcon,
     this.onSuffixIconPressed,
-    this.keyboardType = TextInputType.text, // Default to text keyboard
+    this.keyboardType = TextInputType.text,
   });
 
   @override
@@ -26,21 +26,13 @@ class CustomTextField extends StatefulWidget {
 }
 
 class _CustomTextFieldState extends State<CustomTextField> {
-  late bool _obscureText;
-
-  @override
-  void initState() {
-    super.initState();
-    _obscureText = widget.obscureText;
-  }
-
   @override
   Widget build(BuildContext context) {
     final responsive = context.responsive; // Get responsive instance
 
     return TextField(
-      obscureText: _obscureText,
-      keyboardType: widget.keyboardType, // Set the keyboard type
+      obscureText: widget.obscureText,
+      keyboardType: widget.keyboardType,
       style: const TextStyle(color: Colors.white),
       decoration: InputDecoration(
         hintText: widget.hintText,
