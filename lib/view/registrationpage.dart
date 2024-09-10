@@ -1,82 +1,110 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:sportzbid/core/app_typography.dart';
 import 'package:sportzbid/core/appcolor.dart';
 import 'package:sportzbid/core_widgets/custom_button.dart';
-import 'package:sportzbid/core_widgets/reg_log_buttons.dart'; // Import the custom button
+import 'package:sportzbid/core_widgets/custom_textfield.dart';
+import 'package:sportzbid/utilis/responsive.dart'; // Import the responsive utility
 
-class CreateAccountPage extends StatelessWidget {
+class CreateAccountPage extends StatefulWidget {
   const CreateAccountPage({super.key});
 
   @override
+  _CreateAccountPageState createState() => _CreateAccountPageState();
+}
+
+class _CreateAccountPageState extends State<CreateAccountPage> {
+  bool _obscurePassword = true;
+  bool _obscureConfirmPassword = true;
+
+  @override
   Widget build(BuildContext context) {
+    final responsive = context.responsive; // Get responsive instance
+
     return Scaffold(
       backgroundColor: AppColors.primaryColor, // Dark background color
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 32),
+          padding: EdgeInsets.symmetric(
+              horizontal: responsive.wp(5)), // Use responsive padding
           child: Container(
             decoration: BoxDecoration(
               color: AppColors.secondaryColor, // Card color
               borderRadius: BorderRadius.circular(20),
             ),
-            padding: const EdgeInsets.all(24),
+            padding: EdgeInsets.all(responsive.wp(4)), // Use responsive padding
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                const Text(
+                Text(
                   'Create an account',
-                  style: TextStyle(
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold,
+                  style: AppTypography.interRegular.copyWith(
+                    fontSize: responsive.sp(24),
                     color: Colors.white,
                   ),
                   textAlign: TextAlign.center,
                 ),
-                const SizedBox(height: 32),
+                SizedBox(height: responsive.hp(3)),
                 const CustomTextField(
                   hintText: 'Name',
+                  prefixIcon: Icons.man,
                 ),
-                const SizedBox(height: 16),
+                SizedBox(height: responsive.hp(2)),
                 const CustomTextField(
                   hintText: 'Mobile number',
+                  prefixIcon: Icons.phone,
+                  keyboardType: TextInputType.number,
                 ),
-                const SizedBox(height: 16),
-                const CustomTextField(
+                SizedBox(height: responsive.hp(2)),
+                CustomTextField(
                   hintText: 'Password',
-                  obscureText: true,
+                  obscureText: _obscurePassword,
+                  prefixIcon: Icons.lock,
+                  suffixIcon: _obscurePassword ? Icons.visibility_off : Icons.visibility,
+                  onSuffixIconPressed: () {
+                    setState(() {
+                      _obscurePassword = !_obscurePassword;
+                    });
+                  },
                 ),
-                const SizedBox(height: 16),
-                const CustomTextField(
+                SizedBox(height: responsive.hp(2)),
+                CustomTextField(
                   hintText: 'Confirm Password',
-                  obscureText: true,
+                  obscureText: _obscureConfirmPassword,
+                  prefixIcon: Icons.lock,
+                  suffixIcon: _obscureConfirmPassword ? Icons.visibility_off : Icons.visibility,
+                  onSuffixIconPressed: () {
+                    setState(() {
+                      _obscureConfirmPassword = !_obscureConfirmPassword;
+                    });
+                  },
                 ),
-                const SizedBox(height: 32),
+                SizedBox(height: responsive.hp(4)),
                 CustomButton(
                   text: 'Create Account',
                   onPressed: () {
                     print('tapped');
                   },
                 ),
-                const SizedBox(height: 24),
+                SizedBox(height: responsive.hp(3)),
                 RichText(
                   text: TextSpan(
                     text: 'Already have an account? ',
-                    style: const TextStyle(
-                      fontSize: 14,
+                    style: TextStyle(
+                      fontSize: responsive.sp(14),
                       color: Colors.white70,
                     ),
                     children: <TextSpan>[
                       TextSpan(
                         text: 'Log in',
-                        style: const TextStyle(
-                          fontSize: 14,
+                        style: AppTypography.interRegular.copyWith(
+                          fontSize: responsive.sp(14),
                           color: Colors.white,
-                          fontWeight: FontWeight.w600,
                         ),
                         recognizer: TapGestureRecognizer()
                           ..onTap = () {
-                            
+                           
                           },
                       ),
                     ],

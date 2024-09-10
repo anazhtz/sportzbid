@@ -1,70 +1,77 @@
 import 'package:flutter/material.dart';
 import 'package:sportzbid/core/appcolor.dart';
 
-
 class AppTypography {
-  static const outfitThin = TextStyle(
-      fontWeight: FontWeight.w100,
-      fontFamily: 'Outfit',
-      color: Color(0xFF78828A));
+  static const interThin = TextStyle(
+    fontWeight: FontWeight.w100,
+    fontFamily: 'Inter',
+    color: Color(0xFF11002C),
+  );
 
-  static const outfitExtraLight = TextStyle(
-      fontWeight: FontWeight.w200,
-      fontFamily: 'Outfit',
-      color: Color(0xFFF6F8FE));
+  static const interExtraLight = TextStyle(
+    fontWeight: FontWeight.w200,
+    fontFamily: 'Inter',
+    color: Color(0xFF11002C),
+  );
 
-  static const outfitLight = TextStyle(
-      fontWeight: FontWeight.w300,
-      fontFamily: 'Outfit',
-      color: Color(0xFFFFFFFF));
+  static const interLight = TextStyle(
+    fontWeight: FontWeight.w300,
+    fontFamily: 'Inter',
+    color: Color(0xFF11002C),
+  );
 
-  static const outfitRegular = TextStyle(
-      fontWeight: FontWeight.w400,
-      fontFamily: 'Outfit',
-      color: Color(0xFF11002C));
+  static const interRegular = TextStyle(
+    fontWeight: FontWeight.w400,
+    fontFamily: 'Inter',
+    color: Color(0xFF11002C),
+  );
 
-  static const outfitMedium = TextStyle(
-      fontWeight: FontWeight.w500,
-      fontFamily: 'Outfit',
-      color: Color(0xFF11002C));
+  static const interMedium = TextStyle(
+    fontWeight: FontWeight.w500,
+    fontFamily: 'Inter',
+    color: Color(0xFF11002C),
+  );
 
-  static const outfitSemiBold = TextStyle(
-      fontWeight: FontWeight.w600,
-      fontFamily: 'Outfit',
-      color: Color(0xFF11002C));
+  static const interSemiBold = TextStyle(
+    fontWeight: FontWeight.w600,
+    fontFamily: 'Inter',
+    color: Color(0xFF11002C),
+  );
 
-//MAIN HEAD
-  static const outfitboldmainHead = TextStyle(
-      fontWeight: FontWeight.w700,
-      fontFamily: 'Outfit',
-      fontSize: 25,
-      color: Color(0xFF11002C));
+  static const interBoldMainHead = TextStyle(
+    fontWeight: FontWeight.w700,
+    fontFamily: 'Inter',
+    fontSize: 25,
+    color: Color(0xFF11002C),
+  );
 
-//SUB HEAD
-  static const outfitboldsubHead = TextStyle(
-      fontWeight: FontWeight.w500,
-      fontFamily: 'Outfit',
-      color: Color(0xFF11002C));
+  static const interBoldSubHead = TextStyle(
+    fontWeight: FontWeight.w500,
+    fontFamily: 'Inter',
+    color: Color(0xFF11002C),
+  );
 
-// TITLE
+  static TextStyle interMainTitle = TextStyle(
+    fontWeight: FontWeight.w500,
+    fontFamily: 'Inter',
+    color: AppColors.primaryColor,
+  );
 
-  static TextStyle outfitMainTitle = TextStyle(
-      fontWeight: FontWeight.w500,
-      fontFamily: 'Outfit',
-      color: AppColors.primaryColor);
+  static const interBold = TextStyle(
+    fontWeight: FontWeight.w700,
+    fontFamily: 'Inter',
+    color: Color(0xFF11002C),
+  );
 
-  static const outfitBold = TextStyle(
-      fontWeight: FontWeight.w700,
-      fontFamily: 'Outfit',
-      color: Color(0xFF11002C));
+  static const interExtraBold = TextStyle(
+    fontWeight: FontWeight.w800,
+    fontFamily: 'Inter',
+    color: Color(0xFF11002C),
+  );
 
-  static const outfitExtraBold = TextStyle(
-      fontWeight: FontWeight.w800,
-      fontFamily: 'Outfit',
-      color: Color(0xFF11002C));
-
-  static const outfitBlack = TextStyle(
-      fontWeight: FontWeight.w900,
-      fontFamily: 'Outfit',
-      color: Color(0xFF11002C));
+  static const interBlack = TextStyle(
+    fontWeight: FontWeight.w900,
+    fontFamily: 'Inter',
+    color: Color(0xFF11002C),
+  );
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sportzbid/view/registrationpage.dart';
+import 'package:sportzbid/view/loginpage.dart';
+import 'package:sportzbid/view/registrationpage.dart'; // Import your CreateAccountPage
 
 void main() {
   runApp(const MyApp());
@@ -7,16 +8,19 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'SportzBid',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        primarySwatch: Colors.blue,
       ),
-      home: const CreateAccountPage(),
+      home: const LoginPage(),
+      routes: {
+        '/create-account': (context) => const CreateAccountPage(),
+      },
     );
   }
 }
