@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:sportzbid/routes/app_routes.dart';
 import 'package:sportzbid/view/loginpage.dart';
-import 'package:sportzbid/view/registrationpage.dart'; // Import your CreateAccountPage
+import 'package:sportzbid/view/registrationpage.dart'; 
 
 void main() {
   runApp(const MyApp());
@@ -11,16 +13,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'SportzBid',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const LoginPage(),
-      routes: {
-        '/create-account': (context) => const CreateAccountPage(),
-      },
-    );
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+    return  MaterialApp(
+        theme: ThemeData(
+          primarySwatch: Colors.green,
+        ),
+        debugShowCheckedModeBanner: false,
+        onGenerateRoute: AppRoutes.onGenerateRoute,
+        initialRoute: '/',
+      );
   }
 }

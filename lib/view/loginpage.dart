@@ -62,9 +62,9 @@
                   ),
                   SizedBox(height: responsive.hp(2)),
                   CustomButton(
-                    text: 'Create Account',
+                    text: 'Login',
                     onPressed: () {
-                      Navigator.pushNamed(context, '/create-account');
+                     Navigator.pushNamed(context, '/homepage');
                     },
                   ),
                   const SizedBox(height: 24),
@@ -85,7 +85,7 @@
                           ),
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
-                              Navigator.pushNamed(context, '/create-account');
+                              Navigator.pushNamed(context, '/registerpage');
                             },
                         ),
                       ],

@@ -88,7 +88,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                 CustomButton(
                   text: 'Create Account',
                   onPressed: () {
-                    print('tapped');
+                    Navigator.pushNamed(context, '/');
                   },
                 ),
                 SizedBox(height: responsive.hp(3)),
@@ -108,8 +108,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                         ),
                         recognizer: TapGestureRecognizer()
                           ..onTap = () {
-                            Navigator.pop(
-                                context); // Navigate back to the LoginPage
+                            Navigator.pushNamed(context, '/');
                           },
                       ),
                     ],
