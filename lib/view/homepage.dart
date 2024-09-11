@@ -70,7 +70,7 @@ class _HomepageState extends State<Homepage> {
         .toList();
 
     return Scaffold(
-      key: _scaffoldKey, // Add this key to Scaffold
+      key: _scaffoldKey,
       backgroundColor: AppColors.secondaryColor,
       appBar: AppBar(
         backgroundColor: AppColors.primaryColor,
@@ -83,7 +83,7 @@ class _HomepageState extends State<Homepage> {
             size: responsive.hp(5),
           ),
           onPressed: () {
-            _scaffoldKey.currentState?.openDrawer(); // Open the drawer
+            _scaffoldKey.currentState?.openDrawer();
           },
         ),
         actions: [
@@ -98,7 +98,7 @@ class _HomepageState extends State<Homepage> {
           SizedBox(width: responsive.wp(5)),
         ],
       ),
-      drawer: CustomDrawer(), // Attach the drawer
+      drawer: const CustomDrawer(currentPage: 'Home'), 
       body: Column(
         children: [
           Padding(

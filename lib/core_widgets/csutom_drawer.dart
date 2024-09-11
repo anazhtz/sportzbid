@@ -1,69 +1,104 @@
 import 'package:flutter/material.dart';
 import 'package:sportzbid/core/appcolor.dart';
+import 'package:sportzbid/utilis/responsive.dart';
 
 class CustomDrawer extends StatelessWidget {
-  const CustomDrawer({super.key});
+  final String currentPage;
+
+  const CustomDrawer({super.key, required this.currentPage});
 
   @override
   Widget build(BuildContext context) {
+    final responsive = context.responsive;
+
     return Drawer(
       child: Container(
         color: AppColors.textFeildColor,
         child: Column(
           children: [
-            DrawerHeader(
-              decoration: BoxDecoration(
-                color: AppColors.textFeildColor,
+            SizedBox(height: responsive.hp(6)), // Adjusted height for top spacing
+            Text(
+              'SPORTZBID',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: responsive.sp(28), // Responsive font size
+                fontWeight: FontWeight.bold,
+                letterSpacing: responsive.wp(0.5), // Responsive letter spacing
               ),
-              child: const Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  'SPORTZBID',
+            ),
+            SizedBox(height: responsive.hp(6)), // Adjusted height for spacing between elements
+            Container(
+              color: currentPage == 'Home' ? AppColors.secondaryColor : null,
+              child: ListTile(
+                leading: Icon(
+                  Icons.home,
+                  color: currentPage == 'Home'
+                      ? AppColors.buttonColor
+                      : Colors.white,
+                  size: responsive.sp(28), // Responsive icon size
+                ),
+                title: Text(
+                  'Home',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: 2.0,
+                    fontSize: responsive.sp(18), // Responsive text size
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
+                onTap: () {
+                  Navigator.pop(context);
+                },
               ),
             ),
-            ListTile(
-              leading: const Icon(Icons.home, color: Colors.white, size: 28),
-              title: const Text(
-                'Home',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w500,
+            Container(
+              color: currentPage == 'Tournaments'
+                  ? Colors.white.withOpacity(0.2)
+                  : null,
+              child: ListTile(
+                leading: Icon(
+                  Icons.emoji_events,
+                  color: currentPage == 'Tournaments'
+                      ? AppColors.buttonColor
+                      : Colors.white,
+                  size: responsive.sp(28), // Responsive icon size
                 ),
+                title: Text(
+                  'My Tournaments',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: responsive.sp(18), // Responsive text size
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                onTap: () {
+                  Navigator.pop(context);
+                },
               ),
-              onTap: () {},
             ),
-            ListTile(
-              leading:
-                  const Icon(Icons.emoji_events, color: Colors.white, size: 28),
-              title: const Text(
-                'My Tournaments',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w500,
+            Container(
+              color: currentPage == 'Auctions'
+                  ? Colors.white.withOpacity(0.2)
+                  : null,
+              child: ListTile(
+                leading: Icon(
+                  Icons.group,
+                  color: currentPage == 'Auctions'
+                      ? AppColors.buttonColor
+                      : Colors.white, // Change icon color
+                  size: responsive.sp(28), // Responsive icon size
                 ),
-              ),
-              onTap: () {},
-            ),
-            ListTile(
-              leading: const Icon(Icons.group, color: Colors.white, size: 28),
-              title: const Text(
-                'Auctions',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w500,
+                title: Text(
+                  'Auctions',
+                  style: TextStyle(
+                    color: Colors.white, // Always white text color
+                    fontSize: responsive.sp(18), // Responsive text size
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
+                onTap: () {
+                  Navigator.pop(context); // Close the drawer
+                },
               ),
-              onTap: () {},
             ),
             const Spacer(),
           ],
